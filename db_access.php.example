@@ -1,0 +1,8 @@
+<?php
+
+	function sqlUser() { return 'username'; }
+	function sqlPass() { return 'password'; }
+	function sqlHost() { return 'dbhost'; }
+	function sqlBase() { return 'dbname'; }
+
+?>
