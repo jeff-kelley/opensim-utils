@@ -70,6 +70,7 @@
 	// Get region name from query string
 	$region = urldecode ($_SERVER['QUERY_STRING']);
 	if ($region=='') die ("You must specify a region");
+	$region = mysql_real_escape_string($region);
 
 	// Get region data
 	$query  = "SELECT * FROM $robustDB.regions WHERE regionName='$region';";
