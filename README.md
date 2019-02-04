@@ -4,5 +4,5 @@
 - gridmap.php : Build a map of your grid
 - gridstat.php : Show all statistics for your grid
 - concierge.php : A growling concierge, for Max OS X
-- scrits.php : List region scripts
+- scripts.php : List region scripts
 - getasset.php : Dump a raw asset
