@@ -1,6 +1,6 @@
-![](doc/gridstats.jpg | width=200)
-![](doc/scripts.jpg | width=200)
-![](doc/gridmap.jpg | width=200) 
+<img align="top" width="250" src="doc/gridmap.png"">
+<img align="top" width="250" src="doc/scripts.png">
+<img align="top" width="250" src="doc/gridstats.png">
 
 ### Sparse collection of utilities for opensimulator.
 
@@ -9,6 +9,7 @@
 
 This script queries ROBUST or the database to obtain the list of regions and their parameters. It then computes grid bounds and prints a HTML table with images pointing to ROBUST's maptiles.
  
+[full size image](doc/gridmap.png)
 
 ##### gridstat.php : Show all statistics for your grid. 
 
@@ -16,7 +17,7 @@ This script queries ROBUST or the database to obtain the list of regions and the
 
 Links to scripts.php.
 
-[full size image](doc/gridstats.jpg)
+[full size image](doc/gridstats.png)
 
 #### scripts.php : List region scripts.
 
@@ -24,7 +25,7 @@ This script queries the database for a list of all scripts contained in a region
 
 Links to getasset.php.
 
-[full size image](doc/scripts.jpg)
+[full size image](doc/scripts.png)
 
 #### getasset.php : Dump a raw asset. 
 
