@@ -75,6 +75,7 @@
 	//
 	// We offer two ways to query region data : Robust and database
 	// Choose depending on your configuration and security issues
+	// Quering ROBUST has shown to be faster than the database
 	//
 
 	// Include this for database access
@@ -181,17 +182,17 @@
 	function GetRegionsFromDatabase() {
 		global $sqlUser, $sqlPass, $sqlHost, $simBase, $robBase;
 
-		$query  = "SELECT * FROM robust.regions;";
+		$query  = "SELECT * FROM regions";
 
 		$link = new mysqli($sqlHost,$sqlUser,$sqlPass,$robBase);
 		if ($link->connect_errno)
 			die('Connect Error: ' . $link->connect_errno . ' (' . $link->connect_error . ')');
 
-		$answer = $link->query($query);
+		$answ = $link->query($query);
 		if ($link->errno)
 			die('Select Error: ' . $link->errno . '(' . $link->error . ')');
 
-		$result = $answer->fetch_all(MYSQLI_ASSOC);
+		$result = $answ->fetch_all(MYSQLI_ASSOC);
 
 		$link->close();
 		return $result;
@@ -200,7 +201,6 @@
 
 	//
 	//	Getting region data with a ROBUST query
-	//	Define ROBUST private service uri below
 	//
 
 
@@ -247,6 +247,7 @@
 		if (!empty($result)) // JYB 06-FEB-2015
 			return new SimpleXmlElement($result);    
 	}
+
 	function GetRegionRange($serviceUri, $minX, $minY, $maxX, $maxY, $debug = FALSE)
 	{
 		$params 

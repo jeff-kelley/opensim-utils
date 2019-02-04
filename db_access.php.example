@@ -1,8 +1,8 @@
 <?php
 
-	$sqlUser = 'username';
-	$sqlPass = 'password';
-	$sqlHost = 'localhost';
-	$simBase = 'opensim';
-	$robBase = 'robust';
+	$sqlHost = 'localhost';		// Your MyQL host name
+	$sqlUser = 'username';		// Your MyQL user name
+	$sqlPass = 'password';		// Your MyQL password
+	$simBase = 'opensim';		// Your region database
+	$robBase = 'robust';		// Your ROBUST database
 ?>
