@@ -33,3 +33,7 @@ Queries tha database for a given UUID and returns content. Used to retrieve scri
 Common to all scripts.
 
 All together, these scripts allow you to dive into each and every script source code in your grid. Access should be granted to grid managers only (use .htaccess).
+
+#### Dependencies :
+- mysqlnd (apt install php-mysqlnd)- php-curl (apt install php-curl)
+- php-xml (apt install php-xml)

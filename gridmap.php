@@ -176,7 +176,7 @@
 	//	Define mysql credentials in db_access.php
 	//
 	//	We use php MySQL native driver
-	//	(apt-get install php5-mysqlnd)
+	//	(apt-get install php-mysqlnd)
 	//
 
 	function GetRegionsFromDatabase() {
