@@ -1,8 +1,8 @@
-### Sparse collection of utilities for opensimulator.
-
-<img align="top" width="250" src="doc/gridmap.png"">
+<img align="top" width="250" src="doc/gridmap.png">
 <img align="top" width="250" src="doc/scripts.png">
 <img align="top" width="250" src="doc/gridstats.png">
+
+### Sparse collection of utilities for opensimulator.
 
 ##### gridmap.php : Show a map of your grid.
 
