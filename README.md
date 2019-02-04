@@ -1,5 +1,5 @@
 ![alt text](doc/gridmap-small.jpg "gridpam") 
-![alt text](doc/gridstat-small.jpg "gridstat")
+![alt text](doc/gridstats-small.jpg "gridstat")
 
 [full size map](doc/gridmap.jpg)
 [full size stats](doc/gridstats.jpg)
