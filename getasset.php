@@ -17,7 +17,7 @@
 	if (!$match) die ($uuid.' is not an UUID');
 
 	// Connect to the database engine
-	$link = new mysqli($sqlHost,$sqlUser,$sqlPass,$sqlBase);
+	$link = new mysqli($sqlHost,$sqlUser,$sqlPass,$simBase);
 	if ($link->connect_errno)
 	    die('Connect Error: ' . $link->connect_errno);
 
@@ -29,7 +29,7 @@
 	$asset = $answer->fetch_assoc();
 	$data  = $asset['data'];
 
-	echo '<PRE>';
+	echo '<XMP>';
 	echo $data;
 
 ?>
