@@ -79,7 +79,7 @@
 	//
 
 	// Include this for database access
-	// See exemple for content
+	// See example for content
 
 	include "db_access.php";
 

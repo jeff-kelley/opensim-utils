@@ -1,20 +1,36 @@
-﻿<!DOCTYPE html>
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
 <head>
 	<title>Region Scripts</title>
 	<style type="text/css">
-		body		{ font-family: 'Monaco'; font-size: 12px; }
-		table 		{ margin: auto; border-collapse: collapse;
-					  border: 1px solid black; }
-		td			{ border-right: 1px solid #aaa;
-					  padding: 2px 4px 2px 4px; 
-					  text-align: left; }
-		tr.root		{ background: #ccd; }
-		tr.prim		{ background: #eee; }
+		body		{
+					font-family: 'Monaco';
+					font-size: 12px; 
+					}
+		table 		{
+					margin: auto; 
+					border-collapse: collapse;
+					border: 1px solid black;
+					}
+		td			{
+					border-right: 1px solid #aaa;
+					padding: 2px 4px 2px 4px; 
+					text-align: left;
+					}
+		tr.root		{
+					background: #ccd;
+					}
+		tr.prim		{
+					background: #eee;
+					}
 		tr.root,
-		th			{ border-top: 1pt solid black; }
-		th 			{ font-weight: bold;
-					 text-align: center; }
+		th			{
+					border-top: 1pt solid black;
+					}
+		th 			{
+					font-weight: bold;
+					text-align: center;
+					}
 	</style>
 </head>
 
@@ -33,50 +49,43 @@
 
 	error_reporting(E_ALL ^ E_NOTICE);
 
-	// This function returns the database name for a given region.
-	// Our grid uses one database per simulator, with port numbers
-	// and database names following a regular scheme. The db name
-	// is 'sim' appended with the two last digits of the server port.
-	//
-	// ADAPT THIS FOR YOUR GRID
+	// Include this for database access
+	// See exemple for content
 
-	function DatabaseForRegion($region) {
-// 		$serverPort = $region['serverHttpPort'];
-// 		return sprintf ("sim%02d", $serverPort-9000);
-		return 'opensim';
-	}
-
-	// This is the database name for ROBUST
-	//
-	// ADAPT THIS FOR YOUR GRID
-	
-	$robustDB = 'robust';
-
-
-	/////////////////////////////
-	// Nothing to change below //
-	/////////////////////////////
-
-
-	// Define functions sqlUser(), sqlPass(), sqlHost(), sqlBase()
-	// Keep outside of main code to hide sensitive information
 	include "db_access.php";
 
+
+	// By default, all regions share the same database.
+	// If you use different dabatases for different regions,
+	// you should modify this function using any of the fields
+	// available in $region (serverPort, serverIP, ...)
+
+	function DatabaseForRegion($region) {
+//		$serverPort = $region['serverHttpPort'];
+//		return sprintf ("sim%02d", $serverPort-9000);
+		return $simBase;	// Defined in db_access.php
+	}
+
+
+	// Nothing to change below //
+
+
 	// Connect to the database engine
-	$link = new mysqli(sqlHost(),sqlUser(),sqlPass(),sqlBase());
+	$link = new mysqli($sqlHost,$sqlUser,$sqlPass,$simBase);
 	if ($link->connect_errno)
 		die('Connect Error: ' . $link->connect_errno . ' (' . $link->connect_error . ')');
 
 	// Get region name from query string
 	$region = urldecode ($_SERVER['QUERY_STRING']);
 	if ($region=='') die ("You must specify a region");
-	$region = mysql_real_escape_string($region);
+	$region = $link->real_escape_string($region);
 
 	// Get region data
-	$query  = "SELECT * FROM $robustDB.regions WHERE regionName='$region';";
+	$query  = "SELECT * FROM $robBase.regions WHERE regionName='$region';";
 	$answer = $link->query($query);
 	if (!$answer->num_rows) die ("Region $region not found\n");
 
+	// Extract region UUID
 	$region = $answer->fetch_assoc();
 	$regionUuid = $region['uuid'];
 	$regionDB = DatabaseForRegion ($region);
