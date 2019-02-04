@@ -1,6 +1,6 @@
-![alt text](doc/gridstats-small.jpg "gridstat")
-![alt text](doc/scripts-small.jpg "gridstat")
-![alt text](doc/gridmap-small.jpg "gridpam") 
+![](doc/gridstats.jpg | width=200)
+![](doc/scripts.jpg | width=200)
+![](doc/gridmap.jpg | width=200) 
 
 ### Sparse collection of utilities for opensimulator.
 
@@ -9,8 +9,6 @@
 
 This script queries ROBUST or the database to obtain the list of regions and their parameters. It then computes grid bounds and prints a HTML table with images pointing to ROBUST's maptiles.
  
-[full size image](doc/gridmap.jpg)
-
 
 ##### gridstat.php : Show all statistics for your grid. 
 
