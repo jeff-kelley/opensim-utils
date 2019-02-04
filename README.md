@@ -1,6 +1,6 @@
-![alt text](doc/gridmap-small.jpg "gridpam") 
 ![alt text](doc/gridstats-small.jpg "gridstat")
 ![alt text](doc/scripts-small.jpg "gridstat")
+![alt text](doc/gridmap-small.jpg "gridpam") 
 
 ### Sparse collection of utilities for opensimulator.
 
