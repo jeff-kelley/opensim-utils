@@ -62,7 +62,7 @@
 	// Include this for database access
 	// See example for content
 
-	include "db_access.php"; // Edit this for your site
+	include "db_access.php";
 
 	// Define this for Robust access
 	// This is ROBUST's private port
