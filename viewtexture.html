@@ -1,0 +1,141 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+	<title>Textures</title>
+	<style type="text/css">
+		body		{
+					background : #444444;
+					}
+		div			{
+					xborder : solid thin magenta;
+					}
+		div.wrapper	{ 
+					display : table; margin: auto;
+					border-spacing : 20px; width : 100%;
+					}
+		div.column	{ 
+					display : table-cell; 
+					vertical-align : top;
+					border : solid thin white;
+					}
+		div#scroller {
+					width : 100%; height : 960px;
+					overflow : scroll;
+					}
+		div#right	{
+					width : 50%;
+					}
+		img#im0		{
+		    		display : block;
+					width: 600px; height: 600px;
+		    		margin : 20px auto 20px auto;
+					}
+		img#im0, tbody {
+					border : 3px solid black;
+					}
+		div#right div { 
+					font-weight: bold; 
+					text-align : center; 
+					margin : 8px; padding : 8px;
+					font-family: Arial, Verdana, sans-serif; 
+					}
+		div#right div.grey { 
+					background : #888888;
+					}
+		table		{
+		    		border-collapse : collapse;
+					margin : 0 auto 20px auto;
+					}
+		 td			{
+					width: 150px; height: 150px;
+					margin : 0; padding : 0;
+					}
+		td img		{
+					display : block;
+					width: 150px; height: 150px;
+					}
+		button		{
+					color : #0EF234;
+					background : #444444;
+					border-radius: 3px;
+					-moz-border-radius: 3px;
+					border : 2px solid #cccccc;
+					padding : 4px; width : 100px;
+					margin : 0 5px 0 5px;
+					}
+		button#envoi {
+					color : #FC643A; width : 150px;
+					display : block; margin : auto;
+					font-size : 150%; font-weight : bold;
+					}
+		div#tree	{ background : #999999; }
+		div#right	{ background : #999999; }
+		div#tree ul	{ background : #999999 ! important; }
+		div#tree li	{ background : #999999 ! important; }
+	</style>
+
+
+	<!-- Fetch a texture via web service -->
+
+	<script type="text/javascript">
+		function Fetch(uuid) {
+			url = 'gettexture.php?'+uuid;
+ 			xmlHttp = new XMLHttpRequest();
+ 			xmlHttp.onreadystatechange = FetchCallback;
+ 			xmlHttp.open ("GET", url, true);
+ 			xmlHttp.send (null);
+
+			document.getElementById ('envoi').innerHTML = '-----';
+		}
+
+		function FetchCallback() {
+			if ( xmlHttp.readyState == 4 && xmlHttp.status == 200 ) {
+				document.getElementById ('envoi').innerHTML = 'ENVOI';
+				document.getElementById ('status').innerHTML = xmlHttp.responseText;
+				displayTexture(xmlHttp.responseText);
+			}
+		}
+
+		function displayTexture(url) {
+			document.getElementById ('im0').src = url;
+		}
+	</script>
+
+
+	<!-- Buttons handling -->
+
+	<script type="text/javascript">
+		function buttonClick(button) {
+			which = button.innerHTML;
+			uuid  = document.getElementById ('uuid').value;
+			if (which == 'ENVOI')	  Fetch(uuid);
+		}
+	</script>
+
+
+</head>
+
+
+
+
+
+
+<body class="example">
+	<div class="wrapper">
+
+
+		<div class="column" id="right">
+			<div class="grey">
+				<input id="uuid" onClick="this.value='';" type=text size=36 value="00000000-0000-2222-3333-100000001001">
+			</div>
+			<div>
+				<button id="envoi" onClick="buttonClick(this);">ENVOI</button>
+			</div>
+			<img id="im0" src="blue.png">
+			<div id="status"></div>
+		</div>
+
+	</div>
+</body>
+</html>

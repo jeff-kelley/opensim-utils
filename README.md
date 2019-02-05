@@ -1,6 +1,6 @@
 <img align="top" width="250" src="doc/gridmap.png"><img align="top" width="250" src="doc/scripts.png"><img align="top" width="250" src="doc/gridstats.png">
 
-### Sparse collection of utilities for opensimulator.
+### A collection of PHP utilities for opensimulator.
 
 ##### gridmap.php : Show a map of your grid.
 
@@ -16,7 +16,7 @@ Links to scripts.php.
 
 [full size image](doc/gridstats.png)
 
-#### scripts.php : List region scripts.
+##### scripts.php : List region scripts.
 
 This script queries the database for a list of all scripts contained in a region. It generates a table with script name, link name, root name and position.
 
@@ -24,16 +24,24 @@ Links to getasset.php.
 
 [full size image](doc/scripts.png)
 
-#### getasset.php : Dump a raw asset. 
+##### gettexture.php /  viewtexture.html : Display a texture
 
-Queries tha database for a given UUID and returns content. Used to retrieve scripts. Do not use for binary assets.
+Fetch a texture in database, convert it to a JPEG file, display it on a web page. Use either imagick or gmagick (imagick lost J2K support on Debian/Ubuntu). Create manually the cache folder and chown it to the www user. viewtexture.html calls gettexture.php via XMLHttpRequest.
 
-#### db_access.php : MySQL credentials.
+##### getasset.php : Dump a raw asset. 
+
+Query the database for a given UUID and returns content. Used to retrieve scripts. Do not use for binary assets.
+
+
+##### db_access.php : MySQL credentials.
 
 Common to all scripts.
 
-All together, these scripts allow you to dive into each and every script source code in your grid. Access should be granted to grid managers only (use .htaccess).
+All together, these scripts allow you to dive into each and every script/texture in your grid. Access should be granted to grid managers only (use .htaccess).
 
-#### Dependencies :
+##### Dependencies :
+
 - mysqlnd (apt install php-mysqlnd)- php-curl (apt install php-curl)
 - php-xml (apt install php-xml)
+- imagick (apt install php-imagick) or
+- gmagick (apt install php-gmagick)
