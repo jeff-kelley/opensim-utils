@@ -26,7 +26,7 @@ Links to getasset.php.
 
 ##### gettexture.php /  viewtexture.html : Display a texture
 
-Fetch a texture in database, convert it to a JPEG file, display it on a web page. Use either imagick or gmagick (imagick lost J2K support on Debian/Ubuntu). Create manually the cache folder and chown it to the www user. viewtexture.html calls gettexture.php via XMLHttpRequest.
+Fetch a texture in database, convert it to a JPEG file, display it on a web page. Use either imagick or gmagick. Create manually the cache folder and chown it to the www user. viewtexture.html calls gettexture.php via XMLHttpRequest.
 
 ##### getasset.php : Dump a raw asset. 
 
