@@ -22,7 +22,7 @@
 	    die('Connect Error: ' . $link->connect_errno);
 
 	// Get asset data
-	$query  = "SELECT data FROM robust.assets WHERE id='$uuid'";
+	$query  = "SELECT data FROM $robBase.assets WHERE id='$uuid'";
 	$answer = $link->query($query);
 	if (!$answer->num_rows) die ("Asset $uuid not found\n");
 
